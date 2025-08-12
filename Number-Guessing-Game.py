@@ -3,24 +3,44 @@ import random
 class Number_guess_game:
     def __init__(self):
         self.secret_number = random.randint(1,100)
-        self.number_guess =0
-    def play(self):
-        keep_playing = "yes"
-        while keep_playing == "yes" or keep_playing == "YES" or keep_playing == "Y" or keep_playing == "y":
+        self.difficulty ="easy"
+        self.number_guess = 0
+    def play(self,diff):
+        attempts = 0
+        self.difficulty = diff
+        Out ="no"
+        if self.difficulty == "easy":
+            attempts = 15
+        elif self.difficulty == "medium":
+            attempts = 10
+        elif self.difficulty == "hard":
+            attempts = 5
+        else:
+            print("Wrong difficulty\n")
+            attempts = 0            
+
+        while attempts != 0:
 
             self.number_guess = int(input("Enter your guess :"))
+            attempts -=1
+
             if self.number_guess == self.secret_number:
                 print(f"You guessed right. Number was {self.secret_number} \n")
                 return 
             elif self.number_guess > self.secret_number:
-                print(f"Your guess was big.Do you want to keep playing? ")
-                keep_playing = input(" Then enter (yes/y)")
-
+                print(f"Your guess was big. Enter NO/N to quit")
+                Out = input().upper()
             else:
-                print(f"Your guess was smaller.Do you want to keep playing? ")
-                keep_playing = input("Then enter (yes/y)")
+                print(f"Your guess was smaller.Enter  NO/N to quit")
+                Out = input().upper()
+            if Out == "NO" or Out == "N":
+                break
+
+            
         print(f"You lost. Number was {self.secret_number}")        
 
 
 game = Number_guess_game()
-game.play()
+print("Enter difficulty easy/medium/hard :")
+diff = input().lower()
+game.play(diff)
