@@ -13,4 +13,7 @@ class Number_guess_game:
             print(f"Your guess was big. Number was {self.secret_number}")
         else:
             print(f"Your guess was smaller. Number was {self.secret_number}")
-                
+
+
+game = Number_guess_game()
+game.play()
