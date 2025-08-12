@@ -41,6 +41,10 @@ class Number_guess_game:
 
 
 game = Number_guess_game()
+print("****************Welcome to Number Guessing Game***************")
+print("****You have to guess a number between 1 and 100****")
+print("****You can quit the game at any time by entering NO/N****")
+print("****Choose difficulty level****")
 print("Enter difficulty easy/medium/hard :")
 diff = input().lower()
 game.play(diff)
