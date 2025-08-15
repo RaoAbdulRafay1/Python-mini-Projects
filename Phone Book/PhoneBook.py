@@ -7,18 +7,14 @@ class PhoneBook :
     def display_contacts(self):
         for i in self.contacts :
             print(i)
-            
-
-pb =PhoneBook()
-pb.add_contact({"Abdul Rafay" : "033312125523"})
-pb.add_contact({"Ansar" : "0333212121"})
-pb.add_contact({"Abdul" : "033452783"})
+    def search_contact(self,name):
+        for contact in self.contacts:
+            if name in contact:
+                print(f"Found contact  {contact} .")
+pb= PhoneBook()
+pb.add_contact({"Rao" : "033333333"})
+pb.add_contact({"Rao1" : "032333333"})
+pb.add_contact({"Rao2" : "035333333"})                     
 pb.display_contacts()
-
-
-
-        
-         
-
-
-
+print("Search ")
+pb.search_contact("Rao1")
